@@ -1,20 +1,49 @@
-window.onload = function () {
-  function loadContent(file, containerId) {
-      fetch(file)
-          .then(response => {
-              if (!response.ok) {
-                  throw new Error(`Error loading ${file}: ${response.statusText}`);
-              }
-              return response.text();
-          })
-          .then(data => {
-              document.getElementById(containerId).innerHTML = data;
-          })
-          .catch(error => console.error(`There was a problem loading ${file}:`, error));
-  }
+document.addEventListener("DOMContentLoaded", function () {
+    const contentDiv = document.getElementById("content");
+    const navContainer = document.getElementById("nav-container");
+    const footerContainer = document.getElementById("footer-container");
 
-  loadContent('nav.html', 'nav-container');
-  loadContent('fooldal.html', 'fooldal-container');
-};
+    // Függvény egy külső HTML betöltésére egy adott elembe
+    function loadHTML(url, targetElement) {
+        fetch(url)
+            .then(response => response.text())
+            .then(html => {
+                targetElement.innerHTML = html;
+                attachNavListeners(); // Újra csatoljuk az eseményeket a dinamikusan betöltött elemekhez
+            })
+            .catch(error => console.error("Hiba a betöltés során:", error));
+    }
+
+    // Navigációs események kezelése
+    function attachNavListeners() {
+        document.querySelectorAll("nav .nav-link").forEach(link => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
+                const page = this.textContent.trim().toLowerCase().replace(" ", "_");
+                loadHTML(`${page}.html`, contentDiv);
+            });
+        });
+
+        // Kosár ikon kattintás figyelése
+        const kosarLink = document.querySelector("#kosar_icon_div a");
+        if (kosarLink) {
+            kosarLink.addEventListener("click", function (event) {
+                event.preventDefault();
+                loadHTML("kosar.html", contentDiv);
+            });
+        }
+    }
+
+    // Alapértelmezett főoldal betöltése
+    loadHTML("fooldal.html", contentDiv);
+
+    // Navigáció betöltése
+    loadHTML("nav.html", navContainer);
+
+    // Footer betöltése
+    loadHTML("footer.html", footerContainer);
+});
+
+
 
   
