@@ -1,0 +1,34 @@
+#kosar_icon {
+    font-size: 30px;
+}
+.navbar-toggler-icon {
+    width: 35px;
+}
+#kep {
+    width: 100px;
+}
+#gomb {
+    text-align: center;
+    width: 100px;
+    background-color: rgb(255, 136, 0);
+    border-radius: 10px;
+}
+#logo {
+    height: 50px;
+}
+#kosar_icon_darab_szam {
+    display: inline-block;  /* Ahhoz, hogy a span viselkedjen, mint egy blokk elem */
+    width: 20px;            /* A kör átmérője */
+    height: 20px;           /* A kör magassága, egyenlő legyen a szélességgel */
+    background-color: red;  /* A kör színe */
+    border-radius: 50%;     /* A kör formájának elérése */
+    text-align: center;     /* A szöveget a kör közepére igazítja, ha szükséges */
+    line-height: 18px;      /* A szöveg vertikális középre igazítása */
+    color: white;           /* A szöveg színe */
+    font-size: 12px;        /* Ha van benne szöveg */
+    vertical-align: text-top;
+}
+#kosar_icon_div {
+    width: 55px;
+    height: 55px;
+}
