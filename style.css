@@ -32,3 +32,9 @@
     width: 55px;
     height: 55px;
 }
+.gomb_kosarba {
+    background-color: rgb(255, 145, 0);
+    border-radius: 10px;
+    width: 100px;
+    text-align: center;
+}

@@ -44,6 +44,13 @@ document.addEventListener("DOMContentLoaded", function () {
     loadHTML("footer.html", footerContainer);
 });
 
+///////////////////////////////////////////////////////////////////
+
+
+  
+
+
+
 
 
   
