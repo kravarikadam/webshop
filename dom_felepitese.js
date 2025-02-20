@@ -10,8 +10,21 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(html => {
                 targetElement.innerHTML = html;
                 attachNavListeners(); // Újra csatoljuk az eseményeket a dinamikusan betöltött elemekhez
+                initializeKosar(); // Hozzáadjuk a kosár eseménykezelőt
             })
             .catch(error => console.error("Hiba a betöltés során:", error));
+    }
+
+    // Kosár események kezelése
+    function initializeKosar() {
+        const gombKosarba = document.querySelector('.gomb_kosarba');
+        const kosarDarabSzam = document.querySelector('#kosar_icon_darab_szam');
+
+        if (gombKosarba && kosarDarabSzam) {
+            gombKosarba.addEventListener('click', () => {
+                kosarDarabSzam.style.display = 'inline-block';
+            });
+        }
     }
 
     // Navigációs események kezelése
@@ -44,7 +57,10 @@ document.addEventListener("DOMContentLoaded", function () {
     loadHTML("footer.html", footerContainer);
 });
 
-///////////////////////////////////////////////////////////////////
+
+
+
+
 
 
   

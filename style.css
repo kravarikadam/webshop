@@ -17,7 +17,7 @@
     height: 50px;
 }
 #kosar_icon_darab_szam {
-    display: inline-block;  /* Ahhoz, hogy a span viselkedjen, mint egy blokk elem */
+    display: none; 
     width: 20px;            /* A kör átmérője */
     height: 20px;           /* A kör magassága, egyenlő legyen a szélességgel */
     background-color: red;  /* A kör színe */
